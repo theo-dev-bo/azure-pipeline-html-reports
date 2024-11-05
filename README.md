@@ -1,12 +1,12 @@
-# azure-pipeline-html-reports
+# Html Reports (BlakYaks.azure-pipeline-html-reports)
 
 An Azure DevOps extension that provides a task for publishing report in a HTML format and embeds it into a Build and Release pages.
 
-## Extension
+## Using the extension
 
-In order to see report on tab one must first use `Publish HTML Report` task. This is supporting task which makes html tab visible.
+In order to see a report tab you must use the  `Publish HTML Report` task. This is a supporting task which adds HTML output from the build pipeline(s) for viewing.
 
-This task takes one parameter - required `reportDir` which is a path to report directory. The optional `tabName` parameter may also be supplied to configure the name of the tab displayed within the Azure DevOps UI.
+The task takes one mandatory parameter `reportDir` which should reference the HTML filename to be published. The optional `tabName` parameter may also be supplied to configure the name of the tab displayed under `Reports` in the Azure DevOps UI.
 
 ### Example YAML setup
 
@@ -16,9 +16,18 @@ steps:
     displayName: 'Publish HTML Report'
     inputs:
       reportDir: '$(ResultsPath)/reportName.html'
+      tabName: MyReport
 ```
 
-### 2023-05-10 - Fixed tab name
+## Changelog
+
+### v1.1.1 - BlakYaks Release
+
+This version patches the [AwardedSolutions](https://github.com/FreakinWard/azure-pipeline-html-report) release and is now maintained for future support purposes. The BlakYaks release supports Node 16 and Node 20 runners, removing the deprecation notice displayed during pipeline runs.
+
+Task names and inputs were maintained to simplify update from previous releases.
+
+### v1.0.8
 
 This extension patches the original [HTML Viewer by Jakub Rumpca](https://marketplace.visualstudio.com/items?itemName=JakubRumpca.azure-pipelines-html-report) and resolves [#8 TabName incorrectly renders when using multi-stage pipelines](https://github.com/JakubRumpca/azure-pipeline-html-report/issues/8)
 
@@ -41,6 +50,3 @@ After fix:
     tabName: 'E2E ${{ parameters.region }}-${{ parameters.slotName }}'
 ```
 
-### 2024-11-01 - Version 1.1.0 - Patch Release
-
-This version patches the [AwardedSolutions](https://github.com/FreakinWard/azure-pipeline-html-report) release and is now maintained for future support purposes. The BlakYaks release supports Node 16 and Node 20 runners, removing the deprecation notice displayed during pipeline runs.
