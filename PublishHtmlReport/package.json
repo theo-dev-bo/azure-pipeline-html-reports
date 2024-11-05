@@ -1,0 +1,22 @@
+{
+  "name": "publish-html-report",
+  "version": "1.1.0",
+  "description": "",
+  "main": "index.js",
+  "private": true,
+  "dependencies": {
+    "azure-pipelines-task-lib": "^4.1.0",
+    "cheerio": "^1.0.0-rc.3",
+    "dashify": "^2.0.0",
+    "fs": "0.0.2",
+    "fs-extra": "^8.1.0",
+    "globby": "^11.0.0",
+    "hat": "0.0.3"
+  },
+  "devDependencies": {
+    "azure-devops-ui": "^2.246.0"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
