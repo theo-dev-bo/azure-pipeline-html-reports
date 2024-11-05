@@ -1,0 +1,52 @@
+{
+  "id": "bcac8465-7a8b-4506-9f88-1e910366ec60",
+  "name": "PublishHtmlReport",
+  "friendlyName": "Publish Html Report",
+  "description": "Publish Html Report",
+  "author": "BlakYaks",
+  "helpMarkDown": "Embeds HTML reports in Azure Pipelines",
+  "category": "Utility",
+  "visibility": [
+    "Build"
+  ],
+  "demands": [],
+  "version": {
+    "Major": "1",
+    "Minor": "1",
+    "Patch": "0"
+  },
+  "minimumAgentVersion": "2.144.0",
+  "instanceNameFormat": "Publish Html Report",
+  "inputs": [
+    {
+      "name": "tabName",
+      "type": "string",
+      "label": "Report tab name",
+      "defaultValue": "HTML-Report",
+      "required": false,
+      "helpMarkDown": "Name of the tab displayed in the report window"
+    },
+    {
+      "name": "reportDir",
+      "type": "filePath",
+      "label": "HTML file Directory",
+      "defaultValue": "",
+      "required": true,
+      "helpMarkDown": "HTML file directory where PublishHtmlReport is run"
+    }
+  ],
+  "execution": {
+    "Node10": {
+      "target": "index.js",
+      "argumentFormat": ""
+    },
+    "Node16": {
+      "target": "index.js",
+      "argumentFormat": ""
+    },
+    "Node20_1": {
+      "target": "index.js",
+      "argumentFormat": ""
+    }
+  }
+}
