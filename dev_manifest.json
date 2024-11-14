@@ -1,4 +1,7 @@
 {
     "manifestVersion": 1,
-    "public": false
+    "id": "azure-pipelines-html-reports-dev",
+    "public": false,
+    "version": "1.2.0",
+    "name": "Html Reports (Dev)"
 }

@@ -11,7 +11,6 @@ import { ObservableValue, ObservableObject } from "azure-devops-ui/Core/Observab
 import { Observer } from "azure-devops-ui/Observer"
 import { Tab, TabBar, TabSize } from "azure-devops-ui/Tabs"
 
-
 const ATTACHMENT_TYPE = "report-html";
 
 SDK.init()
@@ -30,7 +29,7 @@ SDK.ready().then(() => {
 })
 
 function displayReports(attachmentClient: AttachmentClient) {
-  ReactDOM.render(<TaskAttachmentPanel attachmentClient={attachmentClient} />, document.getElementById("html-report-extention-container"))
+  ReactDOM.render(<TaskAttachmentPanel attachmentClient={attachmentClient} />, document.getElementById("html-report-extension-container"))
 }
 
 abstract class AttachmentClient {

@@ -2,7 +2,7 @@
     "manifestVersion": 1,
     "id": "azure-pipelines-html-reports",
     "publisher": "BlakYaks",
-    "version": "1.1.1",
+    "version": "1.2.0",
     "author": "Jakub Rumpca & BlakYaks",
     "name": "Html Reports",
     "description": "Embed HTML reports in Azure Pipelines",
