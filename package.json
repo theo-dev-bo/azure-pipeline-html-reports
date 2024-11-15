@@ -14,7 +14,8 @@
     "mustache": "^4.2.0",
     "node-fetch": "^3.3.2",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1"
+    "react-dom": "^16.8.1",
+    "react-inspector": "^6.0.2"
   },
   "engines": {
     "node": ">=20",
@@ -70,5 +71,7 @@
       "last 1 safari version"
     ]
   },
-  "workspaces": ["PublishHtmlReport"]
+  "workspaces": [
+    "PublishHtmlReport"
+  ]
 }
