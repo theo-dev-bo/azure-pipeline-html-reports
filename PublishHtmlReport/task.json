@@ -4,7 +4,7 @@
   "friendlyName": "Publish Html Report",
   "description": "Publish Html Report",
   "author": "BlakYaks",
-  "helpMarkDown": "Embeds HTML reports in Azure Pipelines",
+  "helpMarkDown": "Pipelines task that publishes HTML report files",
   "category": "Utility",
   "visibility": [
     "Build"
@@ -13,7 +13,7 @@
   "version": {
     "Major": "1",
     "Minor": "2",
-    "Patch": "0"
+    "Patch": "1"
   },
   "minimumAgentVersion": "2.144.0",
   "instanceNameFormat": "Publish Html Report",
@@ -33,6 +33,14 @@
       "defaultValue": "",
       "required": true,
       "helpMarkDown": "The HTML file or directory path for the file(s) to be published"
+    },
+    {
+      "name": "useFilenameTabs",
+      "type": "boolean",
+      "label": "Use filenames as tab names",
+      "defaultValue": "true",
+      "required": false,
+      "helpMarkDown": "When using reports from a directory, use the filename as the tab header for each file."
     }
   ],
   "execution": {

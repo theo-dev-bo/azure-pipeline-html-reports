@@ -12,12 +12,12 @@ function addTaskAttachment(attachmentProps) {
 function run() {
     try {
         const reportInputPath = tl.getPathInput('reportDir', true, false);
+        const isDir = statSync(reportInputPath).isDirectory();
         let files = [];
         let summaryPath;
 
-        // Check if reportInputPath is a directory or a file
-        if (statSync(reportInputPath).isDirectory()) {
-            files = globby.sync([`${reportInputPath}/**/*.html`]); // Find all HTML files within the directory
+        if (isDir) {
+            files = globby.sync([`${reportInputPath}/**/*.{html,htm}`]); // Find all HTML files within the directory
             summaryPath = resolve(reportInputPath, 'summary.json'); // Place summary in the directory
         } else {
             files = [reportInputPath]; // Single file case
@@ -38,7 +38,7 @@ function run() {
             writeFileSync(file, document.html());
 
             const attachmentProperties = {
-                name: generateAttachmentName(basename(file)),
+                name: generateAttachmentName(basename(file), isDir),
                 type: 'report-html',
                 path: file
             };
@@ -55,12 +55,19 @@ function run() {
     }
 }
 
-function generateAttachmentName(fileName) {
+function generateAttachmentName(fileName, isDirectory) {
     const jobName = dashify(tl.getVariable('Agent.JobName'));
     const stageName = dashify(tl.getVariable('System.StageDisplayName'));
     const stageAttempt = tl.getVariable('System.StageAttempt');
-    const tabName = tl.getInput('tabName', false) || 'Html-Report';
-    return `${tabName}.${jobName}.${stageName}.${stageAttempt}.${fileName}`;
+    const useFilenamesAsTabHeaders = tl.getBoolInput('useFilenameTabs', true);
+    let tabName;
+    if (isDirectory && useFilenamesAsTabHeaders) {
+        tabName = basename(fileName)
+    } else {
+        tabName = tl.getInput('tabName', false) || 'Html-Report';
+    }
+
+    return `${tabName}~${jobName}~${stageName}~${stageAttempt}~${fileName}`;
 }
 
 function generateSummaryName() {
@@ -68,7 +75,7 @@ function generateSummaryName() {
     const stageName = dashify(tl.getVariable('System.StageDisplayName'));
     const stageAttempt = tl.getVariable('System.StageAttempt');
     const tabName = tl.getInput('tabName', false) || 'Html-Report';
-    return `${tabName}.${jobName}.${stageName}.${stageAttempt}`;
+    return `${tabName}~${jobName}~${stageName}~${stageAttempt}`;
 }
 
 run();
