@@ -118,14 +118,17 @@ export default class TaskAttachmentPanel extends React.Component<TaskAttachmentP
     } else {
       const tabs = []
       for (const attachment of attachments) {
-        const metadata = attachment.name.split('.')
+        const metadata = attachment.name.split('~')
 
         // Determine the tab name and optionally add a badge count
         let name = metadata[0];
         let badgeCount = undefined; // Default badgeCount is undefined which means no badge is shown
 
         if (metadata[2] !== '__default') {
-            badgeCount = parseInt(metadata[3]); // Convert metadata[3] to an integer for badgeCount
+            // Only add badgeCount for secondary attempts
+            if (parseInt(metadata[3]) > 1) {
+              badgeCount = parseInt(metadata[3]);
+            }
         }
 
         tabs.push(<Tab
