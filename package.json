@@ -14,12 +14,11 @@
     "mustache": "^4.2.0",
     "node-fetch": "^3.3.2",
     "react": "^16.8.1",
-    "react-dom": "^16.8.1",
-    "react-object-inspector": "^0.2.1"
+    "react-dom": "^16.8.1"
   },
   "engines": {
-    "node": "=20",
-    "npm": "=9"
+    "node": ">=20",
+    "npm": ">=9"
   },
   "devDependencies": {
     "@types/node": "^22.9.0",
@@ -47,7 +46,6 @@
     "build:cidev": "npm run clean && webpack --mode development",
     "build": "npm run clean && webpack --mode development",
     "postbuild": "npm run extension:package",
-    "postinstall": "cd PublishHtmlReport && npm install",
     "test": "echo No test available",
     "prune": "npm prune --production --ignore-scripts",
     "start:dev": "webpack-dev-server --mode development",
@@ -71,5 +69,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }
+  },
+  "workspaces": ["PublishHtmlReport"]
 }
