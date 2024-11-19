@@ -45,15 +45,15 @@
   ],
   "execution": {
     "Node10": {
-      "target": "index.js",
+      "target": "index.ts",
       "argumentFormat": ""
     },
     "Node16": {
-      "target": "index.js",
+      "target": "index.ts",
       "argumentFormat": ""
     },
     "Node20_1": {
-      "target": "index.js",
+      "target": "index.ts",
       "argumentFormat": ""
     }
   }
