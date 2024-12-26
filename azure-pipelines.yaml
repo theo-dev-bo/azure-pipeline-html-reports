@@ -9,6 +9,12 @@ steps:
   inputs:
     versionSpec: '>=20.x'
 
+- task: TfxInstaller@5
+  displayName: 'Use Node CLI for Azure DevOps'
+  inputs:
+    version: '0.x'
+    checkLatest: true
+
 - task: Npm@1
   displayName: 'NPM: Install Task Dependencies'
   inputs:
